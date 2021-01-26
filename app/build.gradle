@@ -21,26 +21,30 @@ android {
         versionCode 2130
         versionName "0.2.13-SNAPSHOT"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        resValue "string", "branch_io_api_key", rootProject.properties.logisticsBranchKey
-        resValue "string", "awsLoginTestUserName", rootProject.properties.awsLoginTestUserName
-        resValue "string", "awsLoginTestUserPwd", rootProject.properties.awsLoginTestUserPwd
-        resValue "string", "awsLoginTestExpectedPk", rootProject.properties.awsLoginTestExpectedPk
+        resValue "string", "branch_io_api_key", "logisticsBranchKey"
+        resValue "string", "awsLoginTestUserName", "awsLoginTestUserName"
+        resValue "string", "awsLoginTestUserPwd", "awsLoginTestUserPwd"
+        resValue "string", "awsLoginTestExpectedPk", "awsLoginTestExpectedPk"
+//        resValue "string", "branch_io_api_key", rootProject.properties.logisticsBranchKey
+//        resValue "string", "awsLoginTestUserName", rootProject.properties.awsLoginTestUserName
+//        resValue "string", "awsLoginTestUserPwd", rootProject.properties.awsLoginTestUserPwd
+//        resValue "string", "awsLoginTestExpectedPk", rootProject.properties.awsLoginTestExpectedPk
     }
-    signingConfigs {
-        release {
-            storeFile file(project.properties.logisticsKeystorePath)
-            storePassword project.properties.logisticsStorePassword
-            keyAlias project.properties.logisticsKeyAlias
-            keyPassword project.properties.logisticsKeyPassword
-        }
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig = signingConfigs.release
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile file(project.properties.logisticsKeystorePath)
+//            storePassword project.properties.logisticsStorePassword
+//            keyAlias project.properties.logisticsKeyAlias
+//            keyPassword project.properties.logisticsKeyPassword
+//        }
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            signingConfig = signingConfigs.release
+//        }
+//    }
     testOptions {
         unitTests {
             returnDefaultValues = true
