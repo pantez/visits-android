@@ -10,6 +10,7 @@ import com.hypertrack.android.api.Polygon
 import com.hypertrack.android.repository.*
 import com.hypertrack.android.response.AccountData
 import com.hypertrack.android.view_models.*
+import com.hypertrack.logistics.android.github.BuildConfig
 import com.hypertrack.logistics.android.github.R
 import com.hypertrack.sdk.HyperTrack
 import com.hypertrack.sdk.ServiceNotificationConfig
@@ -47,7 +48,7 @@ object Injector {
 
     private val crashReportsProvider: CrashReportsProvider by lazy { FirebaseCrashReportsProvider() }
 
-    val deeplinkProcessor: DeeplinkProcessor = BranchIoDeepLinkProcessor(crashReportsProvider)
+    val deeplinkProcessor: DeeplinkProcessor = if (BuildConfig.DEBUG) MockDeeplinkProcessor() else BranchIoDeepLinkProcessor(crashReportsProvider)
 
     fun getMoshi() : Moshi = Moshi.Builder()
         .add(
